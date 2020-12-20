@@ -2,7 +2,7 @@
 export const addImgToHistory = (res) => {
     return {
         type: "ADD_IMG_TO_HISTORY",
-        data: {
+        payload: {
             url: res.data.image_url,
             date: new Date().toLocaleString(),
             id: res.data.id + (Math.random().toFixed(5)*100000),
@@ -19,7 +19,7 @@ export const refreshImg = () => {
             if(res.ok) {res = await res.json();
                 dispatch(addImgToHistory(res));
             } else {
-                throw new Error();
+                dispatch(setError());
             }
         } catch(err){
             dispatch(setError());
@@ -28,28 +28,10 @@ export const refreshImg = () => {
     }
 }
 
-export const delImgFromHistory = () => {
+export const delImgFromHistory = (index) => {
     return {
         type: "DELETE_IMG_FROM_HISTORY",
-    }
-}
-
-export const switchActiveImg = (index) => {
-    return {
-        type: "SWITCH_ACTIVE_IMG",
         payload: index
-    }
-}
-
-export const switchForward = () => {
-    return {
-        type: "SWITCH_FORWARD"
-    }
-}
-
-export const switchBack = () => {
-    return {
-        type: "SWITCH_BACK"
     }
 }
 

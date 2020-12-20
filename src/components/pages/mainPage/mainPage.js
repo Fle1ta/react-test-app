@@ -1,18 +1,20 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { refreshImg } from "../../../redux/actions/actions";
+import PictureBlock from '../../pictureBlock';
 import '../Page.css';
 
 
 const MainPage = (props) => {
 
     useEffect(() => {
-        if(props.loading){
+        if(props.loading || !props.img){
             props.refreshImg();
         }
     }, []);
 
-    let content = props.loading ? (<h3>loading</h3>) : (<img src={props.img.url} alt='placeholder' />)  
+
+    let content = props.loading ? (<h3>loading</h3>) : (<PictureBlock img = {props.img}/>)  
 
 
     return (
@@ -28,7 +30,7 @@ const MainPage = (props) => {
 
 const mapStateToProps = (state) => {
     return {
-        img: state.imgs[state.imgs.length - 1],
+        img: state.imgs[0],
         loading: state.loading
     }
 }

@@ -11,11 +11,9 @@ import reducer from './redux/reducer';
 const store = createStore(reducer, applyMiddleware(reduxThunk));
 
 ReactDOM.render(
-	<React.StrictMode>
 		<Provider store={store}>
 			<App />
-		</Provider>
-	</React.StrictMode>,
+		</Provider>,
 	document.getElementById('root')
 );
 

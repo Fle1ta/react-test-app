@@ -1,0 +1,30 @@
+.info{
+    width: 600px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.info div{
+    text-align: center;
+    color: #3b0e4b;
+}
+
+.picture{
+    height: 300px;
+    width: 600px;
+    padding: 10px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #3b0e4b;
+    background-color: #fff;
+}
+
+img {
+    display: block;
+    max-height: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}

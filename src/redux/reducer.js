@@ -1,15 +1,11 @@
 import {addImgToHistory, 
-        delImgFromHistory, 
-        switchActiveImg,
-        switchForward,
-        switchBack,
+        delImgFromHistory,
         setError,
         setLoading
     } from "./actions/actionsTypes"
 
 let initialState = {
     imgs: [],
-    currentHistImg: 0,
     loading: true,
     isError: false
 }
@@ -18,7 +14,7 @@ const reducer = (state = initialState, action) => {
     switch (action.type){
 
         case addImgToHistory: 
-            let newImgArray = [...state.imgs, action.data];
+            let newImgArray = [action.payload, ...state.imgs];
             console.log(newImgArray);
             return {
                 ...state,
@@ -27,39 +23,16 @@ const reducer = (state = initialState, action) => {
             }
 
         case delImgFromHistory: 
-            if(state.imgs.length > 1) {
-                let newDelImgArray =[...state.imgs];
-                let newCurrent = (state.currentHistImg === 0) ? 0 : state.currentHistImg-1;
-                newDelImgArray.splice(state.currentHistImg, 1);
-                console.log(newDelImgArray, newCurrent);
-                return {
-                    ...state,
-                    imgs: newDelImgArray,
-                    currentHistImg: newCurrent
-                }
-            } else {
-                return state
+        {
+            let newDelImgArray =[...state.imgs];
+            newDelImgArray.splice(action.payload, 1);
+            return {
+                ...state,
+                imgs: newDelImgArray,
+                loading: newDelImgArray.length ? false : true
+            }  
         }
 
-        case switchActiveImg:
-            return {
-                ...state,
-                currentHistImg: action.payload
-            }
-        
-        case switchForward: 
-            let forvadImg =  (state.currentHistImg === state.imgs.length-1) ? state.currentHistImg : state.currentHistImg + 1;
-            return {
-                ...state,
-                currentHistImg: forvadImg
-            }
-        case switchBack: 
-            let backImg = (state.currentHistImg === 0) ? state.currentHistImg : state.currentHistImg - 1;
-            return {
-                ...state,
-                currentHistImg: backImg
-            }
-        
         case setError: 
             return {
                 ...state,
