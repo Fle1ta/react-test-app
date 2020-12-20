@@ -11,7 +11,7 @@ export function* fetchImg(){
                                                             date: new Date().toLocaleString(),
                                                             id: data.data.id + (Math.random().toFixed(5)*100000),
                                                             title: data.data.title
-                                                        }})
+                                                        }});
         
     } catch(err){
          yield put({type: "SET_ERROR", err})

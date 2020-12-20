@@ -8,14 +8,14 @@ import '../Page.css';
 const MainPage = (props) => {
 
     useEffect(() => {
-        if(props.loading || !props.img){
+        if(props.loading){
             props.fetchImg();
         }
     }, []);
 
 
     let content = props.loading ? (<h3>loading</h3>) : (<PictureBlock img = {props.img}/>)  
-
+    console.log(props.loading);
 
     return (
             <div className="container">
