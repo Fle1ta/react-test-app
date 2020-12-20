@@ -12,14 +12,15 @@ const App = () => {
         <Router>
                 <Header/>
                 <Switch>
-                    <Route path="/" exact>
+                    
+                    <Route path="/history" >
+                        <HistoryPage/>
+                    </Route> 
+                    <Route path="/" >
                         <ErrorBoundary>
                             <MainPage/>
                         </ErrorBoundary>
                     </Route>
-                    <Route path="/history" >
-                        <HistoryPage/>
-                    </Route> 
                 </Switch>
         </Router>
             
