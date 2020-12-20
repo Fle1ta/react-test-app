@@ -11,12 +11,10 @@ let initialState = {
 }
 
 const reducer = (state = initialState, action) => {
-    console.log(action.type);
     switch (action.type){
 
         case addImgToHistory: 
             let newImgArray = [action.payload, ...state.imgs];
-            console.log(newImgArray);
             return {
                 ...state,
                 imgs: newImgArray,
