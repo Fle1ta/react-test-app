@@ -11,6 +11,7 @@ let initialState = {
 }
 
 const reducer = (state = initialState, action) => {
+    console.log(action.type);
     switch (action.type){
 
         case addImgToHistory: 
@@ -22,8 +23,7 @@ const reducer = (state = initialState, action) => {
                 loading: false 
             }
 
-        case delImgFromHistory: 
-        {
+        case delImgFromHistory:
             let newDelImgArray =[...state.imgs];
             newDelImgArray.splice(action.payload, 1);
             return {
@@ -31,23 +31,20 @@ const reducer = (state = initialState, action) => {
                 imgs: newDelImgArray,
                 loading: newDelImgArray.length ? false : true
             }  
-        }
 
-        case setError: 
-        console.log(action.payload);
+        case setError:
             return {
                 ...state,
                 loading: false,
                 isError: true
             }
         
-        case setLoading: {
+        case setLoading:
             return {
                 ...state,
                 loading: true,
                 isError: false
-            }
-        }
+            };
 
         default: return state;
     }

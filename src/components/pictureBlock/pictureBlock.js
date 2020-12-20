@@ -1,6 +1,7 @@
 import React from 'react';
 import './pictureBlock.css';
 
+
 const PictureBlock = ({img, withInfo}) => {
 
     let infoBlock = withInfo ? (<div className='info'>
@@ -9,7 +10,7 @@ const PictureBlock = ({img, withInfo}) => {
                                 </div>) : null;
 
     return (
-        <div className = 'wrapper'>
+        <div>
             { infoBlock }
             <div className='picture'>
                 <img src={img.url} alt=""/>

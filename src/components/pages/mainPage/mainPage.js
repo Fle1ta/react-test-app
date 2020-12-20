@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { fetchImg } from "../../../redux/actions/actions";
+
+import Spinner from '../../spinner';
 import PictureBlock from '../../pictureBlock';
 import '../Page.css';
 
@@ -14,8 +16,8 @@ const MainPage = (props) => {
     }, []);
 
 
-    let content = props.loading ? (<h3>loading</h3>) : (<PictureBlock img = {props.img}/>)  
-    console.log(props.loading);
+    let content = props.loading ? (<Spinner />) : (<PictureBlock img = {props.img}/>)  
+    // console.log(props)
 
     return (
             <div className="container">

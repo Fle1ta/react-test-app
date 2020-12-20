@@ -3,7 +3,7 @@ import { setLoading } from './actions/actions';
 
 export function* fetchImg(){
     try{
-        put(setLoading());
+        yield put(setLoading());
         let data = yield call(() => fetch('https://api.giphy.com/v1/gifs/random?api_key=gR30u9O8KPOanwIQupHbD90d4k57EOeY'));
         data = yield call(() => data.json());
         yield put({type: "ADD_IMG_TO_HISTORY", payload: {
