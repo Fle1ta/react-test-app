@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { refreshImg } from "../../../redux/actions/actions";
+import { fetchImg } from "../../../redux/actions/actions";
 import PictureBlock from '../../pictureBlock';
 import '../Page.css';
 
@@ -9,7 +9,7 @@ const MainPage = (props) => {
 
     useEffect(() => {
         if(props.loading || !props.img){
-            props.refreshImg();
+            props.fetchImg();
         }
     }, []);
 
@@ -23,7 +23,7 @@ const MainPage = (props) => {
                     { content }
                 </div>
                 
-                <button onClick = { () => props.refreshImg()}>Refresh</button>
+                <button onClick = { () => props.fetchImg()}>Refresh</button>
             </div>
     )
 }
@@ -37,7 +37,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        refreshImg: () => dispatch(refreshImg())
+        fetchImg: () => dispatch(fetchImg())
     }
 }
 

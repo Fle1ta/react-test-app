@@ -1,7 +1,7 @@
 import {addImgToHistory, 
         delImgFromHistory,
         setError,
-        setLoading
+        setLoading,
     } from "./actions/actionsTypes"
 
 let initialState = {
@@ -34,6 +34,7 @@ const reducer = (state = initialState, action) => {
         }
 
         case setError: 
+        console.log(action.payload);
             return {
                 ...state,
                 loading: false,
