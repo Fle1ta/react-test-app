@@ -1,6 +1,7 @@
 .info{
     width: 600px;
     margin: 0 auto;
+    margin-top: 10px;
     margin-bottom: 20px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
@@ -22,9 +23,33 @@
     background-color: #fff;
 }
 
-img {
+.picture img {
     display: block;
     max-height: 100%;
-    max-width: 600px;
+    max-width: 100%;
     margin: 0 auto;
+}
+
+
+@media (max-width: 900px){
+    .info{
+        width: 500px;
+        font-size: 14px;
+    }
+    .picture{
+        height: 250px;
+        width: 500px;
+    }
+}
+
+
+@media (max-width: 576px){
+    .info{
+        width: 250px;
+    }
+    .picture{
+        height: 250px;
+        width: 280px;
+        padding: 0;
+    }
 }
